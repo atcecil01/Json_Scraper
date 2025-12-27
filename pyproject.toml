@@ -1,0 +1,6 @@
+[project]
+name = "json_scraper"
+version = "0.1"
+
+[project.scripts]
+json_scraper = "json_scraper:scrape_json"
