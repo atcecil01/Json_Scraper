@@ -24,7 +24,13 @@ def scrape_json():
     print("---------------------------------")
     print("-------JSON Field Scraper--------")
     print("---------------------------------")
+    if not sourcePath or not fieldName:
+        print("Source path or field name not specified. Exiting...")
+        print() # Final newline for better console formatting
+        return
     print("Scraping in progress...")
+
+    
 
     try:
         with open(sourcePath, "r", encoding="utf-8") as f:
@@ -57,7 +63,6 @@ def scrape_json():
         for value in values:
             print(value)
     else:
-        # TODO: error is being thrown here when the output file doesn't already exist
         if not outputPath.endswith(".txt"):
             outputPath += ".txt"
         with open(outputPath, "w", encoding="utf-8") as outFile:

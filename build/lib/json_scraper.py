@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+#
+# Json_Scraper version 0.1 (12.28.2025)
+# A simple script to scrape specified fields from a JSON file.
+# Written by Andrew Cecil (@atcecil01)
+# https://github.com/atcecil01/json-scraper
+
 import json
 import argparse
 
@@ -18,6 +25,11 @@ def scrape_json():
     print("-------JSON Field Scraper--------")
     print("---------------------------------")
     print("Scraping in progress...")
+
+    if not sourcePath or not fieldName:
+        print("Source path or field name not specified. Exiting...")
+        print() # Final newline for better console formatting
+        return
 
     try:
         with open(sourcePath, "r", encoding="utf-8") as f:
@@ -50,7 +62,6 @@ def scrape_json():
         for value in values:
             print(value)
     else:
-        # TODO: error is being thrown here when the output file doesn't already exist
         if not outputPath.endswith(".txt"):
             outputPath += ".txt"
         with open(outputPath, "w", encoding="utf-8") as outFile:
@@ -59,3 +70,6 @@ def scrape_json():
         print(f"Scraped values written to {outputPath}")
 
     print() # Final newline for better console formatting
+
+if __name__ == "__main__":
+    scrape_json()
