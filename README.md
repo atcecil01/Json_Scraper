@@ -1,8 +1,13 @@
-# JSON_Scraper
-A security assessment tool that scrapes the contents of a JSON file to create custom wordlists.
-
+```
+     ██╗███████╗ ██████╗ ███╗   ██╗    ███████╗ ██████╗██████╗  █████╗ ██████╗ ███████╗██████╗ 
+     ██║██╔════╝██╔═══██╗████╗  ██║    ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗
+     ██║███████╗██║   ██║██╔██╗ ██║    ███████╗██║     ██████╔╝███████║██████╔╝█████╗  ██████╔╝
+██   ██║╚════██║██║   ██║██║╚██╗██║    ╚════██║██║     ██╔══██╗██╔══██║██╔═══╝ ██╔══╝  ██╔══██╗
+╚█████╔╝███████║╚██████╔╝██║ ╚████║    ███████║╚██████╗██║  ██║██║  ██║██║     ███████╗██║  ██║
+ ╚════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝
+```
 ## Usage
-This tool is intended for use in creating custom wordlists for testing authentication security.
+This is a security assessment tool for creating custom wordlists from JSON data for testing authentication security.
 
 ## Installation
 1. git clone https://github.com/atcecil01/Json_Scraper.git
