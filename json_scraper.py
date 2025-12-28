@@ -66,3 +66,6 @@ def scrape_json():
         print(f"Scraped values written to {outputPath}")
 
     print() # Final newline for better console formatting
+
+if __name__ == "__main__":
+    scrape_json()
