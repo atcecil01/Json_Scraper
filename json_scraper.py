@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Json_Scraper version 0.1 (12.28.2025)
+# Json_Scraper version 0.2 (01.22.2026)
 # A simple script to scrape specified fields from a JSON file.
 # Written by Andrew Cecil (@atcecil01)
 # https://github.com/atcecil01/json-scraper
