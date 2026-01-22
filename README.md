@@ -18,5 +18,8 @@ This is a security assessment tool for creating custom wordlists from JSON data 
 1. sudo chmod +x json_scraper.py
 2. ln -s $(pwd)/json_scraper.py /usr/bin/json_scraper
 
+## Dependencies
+- [ijson](https://github.com/isagalaev/ijson) (BSD 3-Clause License)
+
 ## Comments
 This tool is intended for educational and legitimate security testing purposes only. Users are responsible for their own use of this tool.

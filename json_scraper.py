@@ -5,7 +5,7 @@
 # Written by Andrew Cecil (@atcecil01)
 # https://github.com/atcecil01/json-scraper
 
-import json
+import ijson
 import argparse
 
 def scrape_json():
@@ -30,28 +30,33 @@ def scrape_json():
         return
     print("Scraping in progress...")
 
-    
 
     try:
         with open(sourcePath, "r", encoding="utf-8") as f:
-            content = json.load(f)
+            # Use streaming parser for memory efficiency with large files
+            # Parse all events and look for matching field names at any depth
+            for prefix, event, value in ijson.parse(f):
+                # Match when we encounter a key that matches fieldName (case-insensitive)
+                if event == "map_key" and value.lower() == fieldName.lower():
+                    # Skip to find the value for this key
+                    continue
+                # Check if this value belongs to a matching key by examining the prefix
+                # Prefix format: "item.key" or "item.0.key" etc
+                key_parts = prefix.split(".")
+                if key_parts and key_parts[-1].lower() == fieldName.lower():
+                    # This is a value for a matching key
+                    if value not in values:
+                        values.append(value)
     except FileNotFoundError as e:
         print(f"Error reading JSON file: {e}")
         print("Exiting...")
         print() # Final newline for better console formatting
         return
-
-    def extract_values(obj, key):
-        if isinstance(obj, dict):
-            for k, v in obj.items():
-                if k.lower() == key and v not in values:
-                    values.append(v)
-                extract_values(v, key)
-        elif isinstance(obj, list):
-            for item in obj:
-                extract_values(item, key)
-
-    extract_values(content, fieldName)
+    except (ijson.JSONError, ijson.IncompleteJSONError) as e:
+        print(f"Error parsing JSON file: {e}")
+        print("Exiting...")
+        print() # Final newline for better console formatting
+        return
 
     print(f"{values.__len__()} values scraped.")
     
